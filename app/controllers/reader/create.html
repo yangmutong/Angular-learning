@@ -1,0 +1,45 @@
+<form ng-submit="vm.submit(vm.form)" novalidate name="form">
+    <div>
+        <label for="_email">邮箱</label>
+        <input type="email" id="_email" ng-model="vm.form.email" ng-required="true" name="email">
+
+        <ul ng-if="form.email.$dirty && form.email.invalid">
+            <li ng-if="form.email.$error.email">无效的邮箱格式</li>
+            <li ng-if="form.email.$error.required">必填项</li>
+        </ul>
+    </div>
+
+    <div>
+        <label for="_nickname">昵称</label>
+        <input type="text" id="_nickname" ng-model="vm.form.nickname">
+    </div>
+
+    <div>
+        <label for="_passwd">密码</label>
+        <input type="password" id="_passwd" ng-model="vm.form.passwd">
+    </div>
+
+    <div>
+        <label for="_retryPasswd">确认密码</label>
+        <input type="password" id="_retryPasswd" ng-model="vm.retryPasswd">
+    </div>
+
+    <div>
+        <label for="_captcha">验证码</label>
+        <input id="_captcha" type="text" ng-model="vm.form.captcha">
+        <img src="" alt="图形验证码">
+    </div>
+
+    <div>
+        <input type="checkbox" id="_accepted" ng-model="vm.accept">
+        <label for="_accepted">我已同意
+            <a href="">用户服务协议</a>
+        </label>
+    </div>
+
+    <div>
+        <button type="submit" ng-submit="vm.submit(vm.form)">提交</button>
+    </div>
+
+
+</form>
