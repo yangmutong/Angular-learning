@@ -1,0 +1,23 @@
+{
+  "name": "angular-learning",
+  "version": "1.0.0",
+  "description": "repo for learning angular",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangmutong/Angular-learning.git"
+  },
+  "keywords": [
+    "learning",
+    "angularJS"
+  ],
+  "author": "yangmutong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangmutong/Angular-learning/issues"
+  },
+  "homepage": "https://github.com/yangmutong/Angular-learning#readme"
+}
