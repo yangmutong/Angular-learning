@@ -1,0 +1,16 @@
+<table class="table table-hover table-striped">
+    <thread>
+        <tr>
+            <th>主题</th>
+            <th>作者</th>
+            <th>发帖时间</th>
+        </tr>
+    </thread>
+    <tbody>
+        <tr ng-repeat="item in items">
+            <td>{{item.title}}</td>
+            <td>{{item.poster}}</td>
+            <td>{{item.dateCreated:date:'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+    </tbody>
+</table>
