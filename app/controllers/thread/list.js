@@ -24,6 +24,12 @@
                 }
             ];
 
+            vm.search = function(){
+                // TO-DO : TRY TO DO SOMETHING SEARCHING ON SERVER
+
+            };
+            vm.search = _.debounce(search, 500);
+
 
         })
 })();
