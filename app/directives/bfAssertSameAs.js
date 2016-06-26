@@ -1,0 +1,34 @@
+/**
+ * Created by MuTong Yang on 2016/6/26/0026.
+ */
+
+(function(){
+    "use strict";
+    angular.module('com.ngnice.app')
+        .directive('bfAssertSameAs', bfAssertSameAs);
+
+    function bfAssertSameAs(){
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, ngModel){
+                var isSame = function(value) {
+
+                    var anotherValue = scope.$eval(attrs.bfAssertSameAs);
+                    return value === anotherValue;
+                };
+
+                ngModel.$parsers.push(function(value){
+                    ngModel.$setValidity('same', isSame(value));
+                    return isSame(value) ? value : undefined;
+                });
+
+                scope.$watch(function(){
+                    return scope.$eval(attrs.bfAssertSameAs);
+                }, function(){
+                    ngModel.$setValidity('same', isSame(ngModel.$modelValue));
+                })
+            }
+        }
+    }
+})();

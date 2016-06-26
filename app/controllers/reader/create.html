@@ -21,24 +21,24 @@
 
     <div>
         <label for="_retryPasswd">确认密码</label>
-        <input type="password" id="_retryPasswd" ng-model="vm.retryPasswd">
+        <input type="password" id="_retryPasswd" ng-model="vm.retryPasswd" bf-assert-same-as="vm.form.passwd" ng-required="true" bf-field-error="{same : 'must same as password'}">
     </div>
 
     <div>
         <label for="_captcha">验证码</label>
         <input id="_captcha" type="text" ng-model="vm.form.captcha">
-        <img src="" alt="图形验证码">
+        <img bf-captcha alt="图形验证码">
     </div>
 
     <div>
-        <input type="checkbox" id="_accepted" ng-model="vm.accept">
+        <input type="checkbox" id="_accepted" ng-model="vm.accept" bf-assert-same-as="true">
         <label for="_accepted">我已同意
             <a href="">用户服务协议</a>
         </label>
     </div>
 
     <div>
-        <button type="submit" ng-submit="vm.submit(vm.form)">提交</button>
+        <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid" ng-submit="vm.submit(vm.form)">提交</button>
     </div>
 
 

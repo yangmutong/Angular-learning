@@ -1,7 +1,7 @@
 (function(){
     "use strict";
     angular.module('com.ngnice.app')
-        .directives('bfFieldError',function($compile){
+        .directive('bfFieldError',function($compile){
             return {
                 restrict: 'A',
                 require: 'ngModel',
@@ -15,8 +15,9 @@
                         return ngModel.$error;
                     }
 
+                    subScope.customMessages = scope.$eval(attrs.bfFieldError);
                     var hint = $compile('<ul class="bf-field-error" ng-if="hasError()">' +
-                        '<li ng-repeat="(name,wrong) in errors()" ng-if="wrong">{{ name | error}}</li></ul>')(subScope);
+                        '<li ng-repeat="(name,wrong) in errors()" ng-if="wrong">{{ name | error:customMessages}}</li></ul>')(subScope);
 
                     element.after(hint);
                 }

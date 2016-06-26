@@ -7,9 +7,10 @@
         .filter("error", error);
 
     function error(Errors){
-        return function (name){
+        return function (name, customMessages){
             // TODO : TYPE CHANGING
-            return Errors[name] || name;
+            var errors  = angular.extend({},Erros, customMessages);
+            return errors[name] || name;
         }
     }
 
